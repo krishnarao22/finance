@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Account
+{% endblock %}
+
+{% block main %}
+  <p><strong>Are you sure you want to delete your account?</strong></p>
+  <form action="/delete" method="post">
+    <input type="radio" name="delete_option" value="yes">  Yes<br><br>
+    <input type="radio" name="delete_option" value="no">  No<br><br>
+    <input type="submit">
+  </form>
+{% endblock %}

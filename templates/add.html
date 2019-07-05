@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Money?
+{% endblock %}
+
+{% block main %}
+  <p><strong><i>So, you want to add money to your account?</i></strong></p>
+  <p>Well, lucky for you, 'cause you live in a world where money grows on trees!</p>
+  <p>Go ahead, enter the amount of money you want to add (no commas):</p>
+  <form action="/add" method="post">
+    <input autocomplete="off" autofocus class="form-control" name="cash_add" placeholder="Enter Amount" type="text">
+  </form>
+  <br><br>
+  <p><strong>Your balance right now: {{balance}} dollars</strong></p>
+{% endblock %}

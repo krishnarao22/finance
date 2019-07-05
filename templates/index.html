@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class="table-bordered table-dark centered" id="stocks-table">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Name of Stock</th>
+      <th>Number of Stocks</th>
+      <th>Current Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in range(0, symbols|length, 1) %}
+    <tr>
+      <td>{{symbols[i]}}</td>
+      <td>{{names[i]}}</td>
+      <td>{{shares[i]}}</td>
+      <td>{{prices[i]}}</td>
+    </tr>
+  {% endfor %}
+  {% if symbols|length == 0 %}
+    <tr>
+      <td>NONE</td>
+      <td>You own no stocks</td>
+      <td>0</td>
+      <td>N/A</td>-
+  {% endif %}
+  </tbody>
+</table>
+<br><br>
+<p><strong>Your balance is {{balance}} dollars.</strong></p>
+<!-- Datatables JS file. Link obtained from https://cdn.datatables.net/ -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#stocks-table').DataTable();
+  });
+</script>
+{% endblock %}

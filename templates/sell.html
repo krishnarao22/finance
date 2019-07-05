@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stocks!
+{% endblock %}
+
+{% block main %}
+{% if symbols|length == 0 %}
+  <p>You do not have any stocks to sell!</p>
+{% else %}
+  <form action="/sell" method="post">
+    <select name="symbol">
+      {% for symbol in symbols %}
+        <option value={{symbol}}>{{symbol}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="text" name="shares" placeholder="Shares to sell:">
+    <br><br>
+    <input type="submit">
+  </form>
+{% endif %}
+{% endblock %}
